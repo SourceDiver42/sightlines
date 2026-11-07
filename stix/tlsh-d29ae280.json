@@ -1,0 +1,353 @@
+{
+ "type": "bundle",
+ "id": "bundle--c0e24ca5-86be-57a9-b2ba-9cb68ccc6f05",
+ "objects": [
+  {
+   "type": "marking-definition",
+   "spec_version": "2.1",
+   "id": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9",
+   "created": "2017-01-20T00:00:00.000Z",
+   "definition_type": "tlp",
+   "name": "TLP:WHITE",
+   "definition": {
+    "tlp": "white"
+   }
+  },
+  {
+   "type": "identity",
+   "spec_version": "2.1",
+   "id": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "created": "2026-01-01T00:00:00.000Z",
+   "modified": "2026-01-01T00:00:00.000Z",
+   "name": "analyze",
+   "identity_class": "organization"
+  },
+  {
+   "type": "campaign",
+   "spec_version": "2.1",
+   "id": "campaign--69944481-67f7-5b5c-a963-6c87024bae00",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-05T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Campaign tlsh-d29ae280",
+   "description": "TLSH similarity cluster shared by 6 samples",
+   "first_seen": "2026-11-02T00:00:00.000Z",
+   "last_seen": "2026-11-05T23:59:59.000Z"
+  },
+  {
+   "type": "malware",
+   "spec_version": "2.1",
+   "id": "malware--5992e751-2c19-5b49-846a-67884fed527c",
+   "created": "2026-09-15T00:00:00.000Z",
+   "modified": "2026-11-07T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "agenttesla",
+   "is_family": true,
+   "malware_types": [
+    "unknown"
+   ]
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--c1612e3d-b071-5e25-8b6d-321d4d41a08e",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "uses",
+   "source_ref": "campaign--69944481-67f7-5b5c-a963-6c87024bae00",
+   "target_ref": "malware--5992e751-2c19-5b49-846a-67884fed527c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--47825583-00f1-504e-afc9-62f525bc210b",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample af99a066e7b7408e",
+   "description": "SHA-256 of a sample (agenttesla); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'af99a066e7b7408e1f8abd52e752ad1a43f1f4dab1b9b3c102b3eb6ae3a8c8bb']",
+   "valid_from": "2026-11-02T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--6809df0b-b361-5a1d-8a16-4d96192fd038",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--47825583-00f1-504e-afc9-62f525bc210b",
+   "target_ref": "campaign--69944481-67f7-5b5c-a963-6c87024bae00"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--c07ee648-f064-5f9b-9898-4b3230a6f243",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--47825583-00f1-504e-afc9-62f525bc210b",
+   "target_ref": "malware--5992e751-2c19-5b49-846a-67884fed527c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--c3dcab38-7a0f-5d27-a435-798f4afe4aa7",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample fa5b14b361b16713",
+   "description": "SHA-256 of a sample (agenttesla); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'fa5b14b361b16713475e12678a236410660b1f814c5a408e606b9f382a48d861']",
+   "valid_from": "2026-11-02T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--3d9de1e8-3358-5d48-b08b-78af6ccf10a1",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--c3dcab38-7a0f-5d27-a435-798f4afe4aa7",
+   "target_ref": "campaign--69944481-67f7-5b5c-a963-6c87024bae00"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--ba65c782-b469-58ff-a1ab-ea5b17a1a481",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--c3dcab38-7a0f-5d27-a435-798f4afe4aa7",
+   "target_ref": "malware--5992e751-2c19-5b49-846a-67884fed527c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--7863c9f3-052a-5400-8cc4-db8535a69d1f",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample ecb997f6d2856e7c",
+   "description": "SHA-256 of a sample (agenttesla); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'ecb997f6d2856e7c5d699b9d6ef20e762d9841bbf06e058f0925efd457446b6d']",
+   "valid_from": "2026-11-02T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--b0fa1014-3e84-5a8e-a37c-30d6d1d9d51f",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--7863c9f3-052a-5400-8cc4-db8535a69d1f",
+   "target_ref": "campaign--69944481-67f7-5b5c-a963-6c87024bae00"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--d4978d10-2e9f-5e13-95c8-8f72e5e9832c",
+   "created": "2026-11-02T00:00:00.000Z",
+   "modified": "2026-11-02T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--7863c9f3-052a-5400-8cc4-db8535a69d1f",
+   "target_ref": "malware--5992e751-2c19-5b49-846a-67884fed527c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--5a39520f-2b92-50de-8d69-bada2e209074",
+   "created": "2026-11-04T00:00:00.000Z",
+   "modified": "2026-11-04T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 44225b7273f7c8cf",
+   "description": "SHA-256 of a sample (agenttesla); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '44225b7273f7c8cf3fc8e705c8a6228d48329d409aa45db9903c1a9a4c4f6cf4']",
+   "valid_from": "2026-11-04T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--68dc3cff-b211-5fbb-99a6-40338cab3217",
+   "created": "2026-11-04T00:00:00.000Z",
+   "modified": "2026-11-04T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--5a39520f-2b92-50de-8d69-bada2e209074",
+   "target_ref": "campaign--69944481-67f7-5b5c-a963-6c87024bae00"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--9a78f223-2c54-52fc-a5f1-2aa844cde87d",
+   "created": "2026-11-04T00:00:00.000Z",
+   "modified": "2026-11-04T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--5a39520f-2b92-50de-8d69-bada2e209074",
+   "target_ref": "malware--5992e751-2c19-5b49-846a-67884fed527c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--4eaad822-f7f0-5a41-b608-954c12e971d5",
+   "created": "2026-11-04T00:00:00.000Z",
+   "modified": "2026-11-04T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 6ef7a69d43c4e84d",
+   "description": "SHA-256 of a sample (agenttesla); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '6ef7a69d43c4e84d51c4d9d3b26dbed13e317443a41667a4c15b6945e84d03b2']",
+   "valid_from": "2026-11-04T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--3b4d2e36-8f0a-5ed2-80c8-ef570ebb7ab5",
+   "created": "2026-11-04T00:00:00.000Z",
+   "modified": "2026-11-04T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--4eaad822-f7f0-5a41-b608-954c12e971d5",
+   "target_ref": "campaign--69944481-67f7-5b5c-a963-6c87024bae00"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--1743d8d6-c57a-5b91-972c-b1e0fdb09ff8",
+   "created": "2026-11-04T00:00:00.000Z",
+   "modified": "2026-11-04T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--4eaad822-f7f0-5a41-b608-954c12e971d5",
+   "target_ref": "malware--5992e751-2c19-5b49-846a-67884fed527c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--a338b95b-e97a-5c9b-8bbb-337a34af97b9",
+   "created": "2026-11-05T00:00:00.000Z",
+   "modified": "2026-11-05T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample a2f8d4e297464a75",
+   "description": "SHA-256 of a sample (agenttesla); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'a2f8d4e297464a75bb925a110a48006b6f774f1abb45e0351d2c9a00c77fbfcb']",
+   "valid_from": "2026-11-05T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--f575f434-6b27-581c-b5f0-1ea385defd7a",
+   "created": "2026-11-05T00:00:00.000Z",
+   "modified": "2026-11-05T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--a338b95b-e97a-5c9b-8bbb-337a34af97b9",
+   "target_ref": "campaign--69944481-67f7-5b5c-a963-6c87024bae00"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--3817bd54-6c8e-5e2c-bd0f-e6034a35cd36",
+   "created": "2026-11-05T00:00:00.000Z",
+   "modified": "2026-11-05T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--a338b95b-e97a-5c9b-8bbb-337a34af97b9",
+   "target_ref": "malware--5992e751-2c19-5b49-846a-67884fed527c"
+  }
+ ]
+}

@@ -1,0 +1,212 @@
+{
+ "type": "bundle",
+ "id": "bundle--40e4c9cb-7629-5e93-88bc-52620a907979",
+ "objects": [
+  {
+   "type": "marking-definition",
+   "spec_version": "2.1",
+   "id": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9",
+   "created": "2017-01-20T00:00:00.000Z",
+   "definition_type": "tlp",
+   "name": "TLP:WHITE",
+   "definition": {
+    "tlp": "white"
+   }
+  },
+  {
+   "type": "identity",
+   "spec_version": "2.1",
+   "id": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "created": "2026-01-01T00:00:00.000Z",
+   "modified": "2026-01-01T00:00:00.000Z",
+   "name": "analyze",
+   "identity_class": "organization"
+  },
+  {
+   "type": "campaign",
+   "spec_version": "2.1",
+   "id": "campaign--3509c784-8303-5be9-8895-99f38b0e8f7d",
+   "created": "2026-10-30T00:00:00.000Z",
+   "modified": "2026-11-01T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Campaign imphash-8c60c038",
+   "description": "Import hash + Rich header hash shared by 3 samples",
+   "first_seen": "2026-10-30T00:00:00.000Z",
+   "last_seen": "2026-11-01T23:59:59.000Z"
+  },
+  {
+   "type": "malware",
+   "spec_version": "2.1",
+   "id": "malware--63cb9529-b8b1-5326-84e3-e958327c4ffa",
+   "created": "2026-09-15T00:00:00.000Z",
+   "modified": "2026-11-07T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "valleyrat",
+   "is_family": true,
+   "malware_types": [
+    "unknown"
+   ]
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--5c0e0944-cdf4-5584-bfa3-682e4adb9315",
+   "created": "2026-10-30T00:00:00.000Z",
+   "modified": "2026-10-30T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "uses",
+   "source_ref": "campaign--3509c784-8303-5be9-8895-99f38b0e8f7d",
+   "target_ref": "malware--63cb9529-b8b1-5326-84e3-e958327c4ffa"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--bc5a8cc6-9a7d-522d-b627-86bed6bae27b",
+   "created": "2026-10-30T00:00:00.000Z",
+   "modified": "2026-10-30T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 46f476a38337e49d",
+   "description": "SHA-256 of a sample (valleyrat); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '46f476a38337e49d1cffbd851c727a94322ee959be314c59dd59cbdd0a827f67']",
+   "valid_from": "2026-10-30T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--74f43769-279d-5b77-b60a-60b72dd79281",
+   "created": "2026-10-30T00:00:00.000Z",
+   "modified": "2026-10-30T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--bc5a8cc6-9a7d-522d-b627-86bed6bae27b",
+   "target_ref": "campaign--3509c784-8303-5be9-8895-99f38b0e8f7d"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--55f42083-9e5a-5c96-a635-480968012d27",
+   "created": "2026-10-30T00:00:00.000Z",
+   "modified": "2026-10-30T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--bc5a8cc6-9a7d-522d-b627-86bed6bae27b",
+   "target_ref": "malware--63cb9529-b8b1-5326-84e3-e958327c4ffa"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--58e910cc-7985-5b36-ba90-5946811040d4",
+   "created": "2026-10-31T00:00:00.000Z",
+   "modified": "2026-10-31T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample c5418c52bdf33f70",
+   "description": "SHA-256 of a sample (valleyrat); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'c5418c52bdf33f70aff9bcf014d3f10c4661a87ff2dbc8747feaa10415fc5e52']",
+   "valid_from": "2026-10-31T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--8b6d1eb7-6098-59ad-a9c2-cf3ef0a36d26",
+   "created": "2026-10-31T00:00:00.000Z",
+   "modified": "2026-10-31T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--58e910cc-7985-5b36-ba90-5946811040d4",
+   "target_ref": "campaign--3509c784-8303-5be9-8895-99f38b0e8f7d"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--1d938749-98f1-5a34-afec-6a2d3c85e95e",
+   "created": "2026-10-31T00:00:00.000Z",
+   "modified": "2026-10-31T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--58e910cc-7985-5b36-ba90-5946811040d4",
+   "target_ref": "malware--63cb9529-b8b1-5326-84e3-e958327c4ffa"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--224ad970-aeec-5e30-ae36-0287413f43d1",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 41d9eb2f5418181c",
+   "description": "SHA-256 of a sample (valleyrat); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '41d9eb2f5418181cfe9a9955bdb1ec99692618759704b92f332d2d6e121fa4aa']",
+   "valid_from": "2026-11-01T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--30a14488-52ab-5031-98cb-85eba919b6ed",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--224ad970-aeec-5e30-ae36-0287413f43d1",
+   "target_ref": "campaign--3509c784-8303-5be9-8895-99f38b0e8f7d"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--5e1cf772-1459-52d5-8d4d-79ddd0522edf",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--224ad970-aeec-5e30-ae36-0287413f43d1",
+   "target_ref": "malware--63cb9529-b8b1-5326-84e3-e958327c4ffa"
+  }
+ ]
+}
