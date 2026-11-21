@@ -1,0 +1,607 @@
+{
+ "type": "bundle",
+ "id": "bundle--86611c4e-7bd2-51e9-b2c9-924adb171752",
+ "objects": [
+  {
+   "type": "marking-definition",
+   "spec_version": "2.1",
+   "id": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9",
+   "created": "2017-01-20T00:00:00.000Z",
+   "definition_type": "tlp",
+   "name": "TLP:WHITE",
+   "definition": {
+    "tlp": "white"
+   }
+  },
+  {
+   "type": "identity",
+   "spec_version": "2.1",
+   "id": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "created": "2026-01-01T00:00:00.000Z",
+   "modified": "2026-01-01T00:00:00.000Z",
+   "name": "analyze",
+   "identity_class": "organization"
+  },
+  {
+   "type": "campaign",
+   "spec_version": "2.1",
+   "id": "campaign--a4e27433-1b19-508d-b750-79a541642100",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-11-09T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Campaign imphash-9bcbcf12",
+   "description": "Import hash + TLSH similarity cluster + Rich header hash shared by 10 samples",
+   "first_seen": "2026-10-19T00:00:00.000Z",
+   "last_seen": "2026-11-09T23:59:59.000Z"
+  },
+  {
+   "type": "malware",
+   "spec_version": "2.1",
+   "id": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762",
+   "created": "2026-10-15T00:00:00.000Z",
+   "modified": "2026-11-09T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "stealc",
+   "is_family": true,
+   "malware_types": [
+    "unknown"
+   ]
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--25afc990-179b-5024-a443-32d6b62f5d73",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-10-19T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "uses",
+   "source_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--a7d603c5-ba85-5636-b080-f08fec983931",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-10-19T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample a668e0f7c669ad39",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'a668e0f7c669ad39bcf6ac0f2f367d0e39515786272084dc130fad1c88a5d59b']",
+   "valid_from": "2026-10-19T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--7c5518af-2596-5e12-8348-db814ad2eb5a",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-10-19T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--a7d603c5-ba85-5636-b080-f08fec983931",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--aba90f5a-c22b-5b16-a258-f63de0a65b32",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-10-19T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--a7d603c5-ba85-5636-b080-f08fec983931",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--16544c54-ee67-577d-9012-5d24758dac5f",
+   "created": "2026-10-21T00:00:00.000Z",
+   "modified": "2026-10-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 6610b57761b7fa2c",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '6610b57761b7fa2cee2d4ed259b561c35f7c9b917c024883b22e52bc53761025']",
+   "valid_from": "2026-10-21T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--97d9314d-180b-5263-b2e7-30236a3c25fc",
+   "created": "2026-10-21T00:00:00.000Z",
+   "modified": "2026-10-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--16544c54-ee67-577d-9012-5d24758dac5f",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--fd358602-be2a-5639-93e2-47b53e4f3513",
+   "created": "2026-10-21T00:00:00.000Z",
+   "modified": "2026-10-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--16544c54-ee67-577d-9012-5d24758dac5f",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--30156ddf-9024-5376-a40b-9296832a37f2",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample dd270d00f3c4abb2",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'dd270d00f3c4abb201f6f36e5440badf4b0dfa1eda4ead4d7e4907c370607fbf']",
+   "valid_from": "2026-11-01T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--22f5a7cf-e63e-5123-9267-8cfaec821f40",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--30156ddf-9024-5376-a40b-9296832a37f2",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--cb92976c-380a-53d2-8141-15c18f98b602",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--30156ddf-9024-5376-a40b-9296832a37f2",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--64f1bde4-535a-55ca-b134-731379ffb4d6",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 7c90299d2b72a727",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '7c90299d2b72a7277b84f0e566fccede8f8372e7f673e75b72802f3439caf299']",
+   "valid_from": "2026-11-01T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--ab5eb88c-b6c3-5495-a161-628a152b3f77",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--64f1bde4-535a-55ca-b134-731379ffb4d6",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--b021f17e-b589-5206-86c8-e2486dd6261d",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--64f1bde4-535a-55ca-b134-731379ffb4d6",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--e9d7ede2-b0f0-5d50-94d2-e77fc6b9b906",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 3bb5bf520eb23961",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '3bb5bf520eb23961d31d5af97d67bea6fff6e111c96eac490044c5b9720a04af']",
+   "valid_from": "2026-11-01T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--adba5149-d27e-5e29-ab0b-286947fe6e83",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--e9d7ede2-b0f0-5d50-94d2-e77fc6b9b906",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--c4a4e272-64ab-54cb-ad93-d5af76c234b4",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--e9d7ede2-b0f0-5d50-94d2-e77fc6b9b906",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--c1f3c65f-7dd6-506e-93a8-4e3f308f7991",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample b0a8156d3ea80ae3",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'b0a8156d3ea80ae3714f4603457b82d9592b337b0b60ea16d1cf9da6c6e96bb0']",
+   "valid_from": "2026-11-01T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--b3907059-08c8-5418-a2b9-dfcb07e0d102",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--c1f3c65f-7dd6-506e-93a8-4e3f308f7991",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--1100cab8-c4ba-5023-881d-f97f4118b46b",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--c1f3c65f-7dd6-506e-93a8-4e3f308f7991",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--d6e1921d-da61-5183-af33-4498d6363f70",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample c932dd86c9a828fb",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'c932dd86c9a828fb890b56deea5fda3e702c86c6e696ccdef8926e445acc9f54']",
+   "valid_from": "2026-11-01T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--aeb89feb-c69a-5e50-b335-cff49def390f",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--d6e1921d-da61-5183-af33-4498d6363f70",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--e8073e89-902b-5e6e-90bc-020646a7de5d",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-01T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--d6e1921d-da61-5183-af33-4498d6363f70",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--6c699165-2461-5ce8-aab5-178adb385f5f",
+   "created": "2026-11-07T00:00:00.000Z",
+   "modified": "2026-11-07T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample da06f80c1aebaef4",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'da06f80c1aebaef4c543e863a4e82277cd61b3291da4f1f16815db834d9b2f40']",
+   "valid_from": "2026-11-07T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--42b69c21-e9d6-59f3-ae56-30eb79fd5a15",
+   "created": "2026-11-07T00:00:00.000Z",
+   "modified": "2026-11-07T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--6c699165-2461-5ce8-aab5-178adb385f5f",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--4c1348b3-fddd-5a14-8fb3-f0405bd368ab",
+   "created": "2026-11-07T00:00:00.000Z",
+   "modified": "2026-11-07T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--6c699165-2461-5ce8-aab5-178adb385f5f",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--d08d2d90-3882-57df-a1bf-aa3f74ce7774",
+   "created": "2026-11-07T00:00:00.000Z",
+   "modified": "2026-11-07T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 044080f017f38a21",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '044080f017f38a21eb4a560aff3c97c30f375144940fe312ad85bc9014e53792']",
+   "valid_from": "2026-11-07T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--22bdd47c-408f-55de-9d78-5519bde15ae0",
+   "created": "2026-11-07T00:00:00.000Z",
+   "modified": "2026-11-07T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--d08d2d90-3882-57df-a1bf-aa3f74ce7774",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--4d8e13e2-359b-5f48-bd44-09a4c83fd259",
+   "created": "2026-11-07T00:00:00.000Z",
+   "modified": "2026-11-07T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--d08d2d90-3882-57df-a1bf-aa3f74ce7774",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--6492080d-e5fa-567c-98d5-bad8c94a066a",
+   "created": "2026-11-09T00:00:00.000Z",
+   "modified": "2026-11-09T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample de149b44ed58149b",
+   "description": "SHA-256 of a sample (stealc); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'de149b44ed58149bedcffc2ce43c3f5905da62a27bb28da5057454162dc49a14']",
+   "valid_from": "2026-11-09T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--593bce71-53cb-52d0-aed9-c46df4da3584",
+   "created": "2026-11-09T00:00:00.000Z",
+   "modified": "2026-11-09T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--6492080d-e5fa-567c-98d5-bad8c94a066a",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--d17665c0-17d5-5047-a7cd-c6595fcbddd8",
+   "created": "2026-11-09T00:00:00.000Z",
+   "modified": "2026-11-09T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--6492080d-e5fa-567c-98d5-bad8c94a066a",
+   "target_ref": "malware--01076f01-1b50-5a4c-9f21-e5da9b469762"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--3fcfb3f3-5988-5986-8218-caab99bcb666",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-11-09T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "C2 138.226.237.113",
+   "description": "C2 from an extracted malware config, or a host the samples reach that ThreatFox lists",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[ipv4-addr:value = '138.226.237.113']",
+   "valid_from": "2026-10-19T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--a28d29e1-1fd8-524d-9344-09b28d8882db",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-10-19T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--3fcfb3f3-5988-5986-8218-caab99bcb666",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--301f1fc1-8dd4-52db-b6cc-36380a56d8c4",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-11-09T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "C2 5.149.250.44",
+   "description": "C2 from an extracted malware config, or a host the samples reach that ThreatFox lists",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[ipv4-addr:value = '5.149.250.44']",
+   "valid_from": "2026-10-19T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--eccab04d-4a19-5132-9915-8e56ce67878a",
+   "created": "2026-10-19T00:00:00.000Z",
+   "modified": "2026-10-19T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--301f1fc1-8dd4-52db-b6cc-36380a56d8c4",
+   "target_ref": "campaign--a4e27433-1b19-508d-b750-79a541642100"
+  }
+ ]
+}
