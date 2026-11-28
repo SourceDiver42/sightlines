@@ -1,0 +1,1469 @@
+{
+ "type": "bundle",
+ "id": "bundle--e939c1db-db6d-5338-a593-f2b099d6bc4c",
+ "objects": [
+  {
+   "type": "marking-definition",
+   "spec_version": "2.1",
+   "id": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9",
+   "created": "2017-01-20T00:00:00.000Z",
+   "definition_type": "tlp",
+   "name": "TLP:WHITE",
+   "definition": {
+    "tlp": "white"
+   }
+  },
+  {
+   "type": "identity",
+   "spec_version": "2.1",
+   "id": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "created": "2026-01-01T00:00:00.000Z",
+   "modified": "2026-01-01T00:00:00.000Z",
+   "name": "analyze",
+   "identity_class": "organization"
+  },
+  {
+   "type": "campaign",
+   "spec_version": "2.1",
+   "id": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Campaign tlsh-0261c487",
+   "description": "TLSH similarity cluster shared by 8 samples",
+   "first_seen": "2026-11-21T00:00:00.000Z",
+   "last_seen": "2026-11-23T23:59:59.000Z"
+  },
+  {
+   "type": "malware",
+   "spec_version": "2.1",
+   "id": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-11-28T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "mirai",
+   "is_family": true,
+   "malware_types": [
+    "unknown"
+   ]
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--c8bb3edb-5b3d-59aa-8870-de1f0cb8a59a",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "uses",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--75a49808-1aa4-5651-adac-16b49e490886",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 4aa4b919f611eb72",
+   "description": "SHA-256 of a sample (mirai); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '4aa4b919f611eb72d2afc56ba3aa6907d487f5c61ee38b7bf5c2cd10ef7d2dd6']",
+   "valid_from": "2026-11-21T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--76615892-8fe2-5e7e-9133-77c743fa904c",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--75a49808-1aa4-5651-adac-16b49e490886",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--2cdc26f9-7e81-515c-8962-c9ff127d6ae5",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--75a49808-1aa4-5651-adac-16b49e490886",
+   "target_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--35ca58e8-8f2a-50ed-89fc-7b6d0ca7bb5a",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample f370eca214b4d23e",
+   "description": "SHA-256 of a sample; get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'f370eca214b4d23ea7ca76ae605501c4f06666606b7e5f0fea4c66d188b6a4ef']",
+   "valid_from": "2026-11-21T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--ff0ede90-a5fd-58d3-b26c-62c056f36c64",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--35ca58e8-8f2a-50ed-89fc-7b6d0ca7bb5a",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--03fa17d8-6927-5d35-919d-2b2f7c24440a",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 292e8b96e7cfd08f",
+   "description": "SHA-256 of a sample; get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '292e8b96e7cfd08f09b8410dfc96cb039092c7b2227b47cf47eb4804a805d582']",
+   "valid_from": "2026-11-21T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--4a4f58af-f83a-5c75-84e4-477cdd3f3451",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--03fa17d8-6927-5d35-919d-2b2f7c24440a",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--a146b386-e62e-576f-bf2d-968d5558c3bc",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 0fc7318c33bd5e0c",
+   "description": "SHA-256 of a sample; get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '0fc7318c33bd5e0cb0daaa6912def0f91557136ad3b2ad915e18ba179f323816']",
+   "valid_from": "2026-11-21T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--cd96e348-3dc0-5bb2-8d8f-cb7e38fdcd3c",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--a146b386-e62e-576f-bf2d-968d5558c3bc",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--3241608a-9667-57e2-8142-994a0d42a9cf",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample c5c9bb7eee175c7c",
+   "description": "SHA-256 of a sample; get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'c5c9bb7eee175c7cee7d15d137cad7bde2b966f2f2d8016aee8956c5c5de2535']",
+   "valid_from": "2026-11-21T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--abd40363-6693-5fc9-a876-c368178a8297",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--3241608a-9667-57e2-8142-994a0d42a9cf",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--ed4adcf8-20d4-5945-9f97-b94ccbc2e7e0",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample b365b67abe73d16d",
+   "description": "SHA-256 of a sample; get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'b365b67abe73d16d3b6ffff7d2e3ab42cec83495bf2137bf975f8c5f55813e02']",
+   "valid_from": "2026-11-21T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--630358e4-1ea1-514f-b2b9-c1e97dccebdf",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--ed4adcf8-20d4-5945-9f97-b94ccbc2e7e0",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--9cdb41a9-9f75-59dd-8157-f8d4b283a85e",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample 280fca499a4fa314",
+   "description": "SHA-256 of a sample (mirai); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = '280fca499a4fa31472d6ee9d9029887e975a53c6857ab11a87b972be669c3531']",
+   "valid_from": "2026-11-21T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--aa5ced47-84d6-5ec8-809f-d0e43e074eea",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--9cdb41a9-9f75-59dd-8157-f8d4b283a85e",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--b882cde3-ef25-5fb4-861c-05002b84a245",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--9cdb41a9-9f75-59dd-8157-f8d4b283a85e",
+   "target_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--21d2b7bc-3be4-598a-b88f-564398fed84b",
+   "created": "2026-11-23T00:00:00.000Z",
+   "modified": "2026-11-23T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "Sample ae744069e73d8fa8",
+   "description": "SHA-256 of a sample (mirai); get it from MalwareBazaar",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[file:hashes.'SHA-256' = 'ae744069e73d8fa89e8e5414c85a8b0fd1dd6d648647eced09ddfa47188c7374']",
+   "valid_from": "2026-11-23T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--b1001d98-442a-565d-9b95-51d343ae4a30",
+   "created": "2026-11-23T00:00:00.000Z",
+   "modified": "2026-11-23T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--21d2b7bc-3be4-598a-b88f-564398fed84b",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--aa5c5ef4-572e-5343-8f7b-0813ceb92767",
+   "created": "2026-11-23T00:00:00.000Z",
+   "modified": "2026-11-23T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--21d2b7bc-3be4-598a-b88f-564398fed84b",
+   "target_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--6767e102-c623-5904-bd82-76276fc399a9",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-11-28T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "C2 196.251.121.142",
+   "description": "C2 from an extracted malware config, or a host the samples reach that ThreatFox lists",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[ipv4-addr:value = '196.251.121.142']",
+   "valid_from": "2026-10-10T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--a7548630-9b33-5b59-81d9-8726bbb7d78d",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--6767e102-c623-5904-bd82-76276fc399a9",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "indicator",
+   "spec_version": "2.1",
+   "id": "indicator--d762f32a-6abd-5b5e-8abb-67250b888470",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-11-28T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "C2 purenetworks.com",
+   "description": "C2 from an extracted malware config, or a host the samples reach that ThreatFox lists",
+   "indicator_types": [
+    "malicious-activity"
+   ],
+   "pattern_type": "stix",
+   "pattern": "[domain-name:value = 'purenetworks.com']",
+   "valid_from": "2026-10-10T00:00:00.000Z"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--a6c147fa-c00d-557c-80c7-66472ba63637",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-21T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "indicates",
+   "source_ref": "indicator--d762f32a-6abd-5b5e-8abb-67250b888470",
+   "target_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--b912d323-99c3-5e8e-89e6-0d5f3d86982a",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2014-8361",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2014-8361",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2014-8361"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2014-8361"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2014-8361"
+    }
+   ],
+   "description": "The miniigd SOAP service in Realtek SDK allows remote attackers to execute arbitrary code via a crafted NewInternalClient request, as exploited in the wild through 2023.",
+   "x_kev": true,
+   "x_kev_date_added": "2023-09-18",
+   "x_kev_due_date": "2023-10-09",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.99971,
+   "x_epss_percentile": 0.99988,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--4511c82f-e507-5369-8717-772e4d48eac2",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--b912d323-99c3-5e8e-89e6-0d5f3d86982a",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--2b092579-fc13-55d6-bbc3-cbbc0a3fdcae",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2015-2051",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2015-2051",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2015-2051"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-2051"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2015-2051"
+    }
+   ],
+   "description": "The D-Link DIR-645 Wired/Wireless Router Rev. Ax with firmware 1.04b12 and earlier allows remote attackers to execute arbitrary commands via a GetDeviceSettings action to the HNAP interface.",
+   "x_kev": true,
+   "x_kev_date_added": "2022-02-10",
+   "x_kev_due_date": "2022-08-10",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.97101,
+   "x_epss_percentile": 0.99933,
+   "x_cvss_base_score": 8.8,
+   "x_cvss_severity": "HIGH"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--7ffe8928-cf71-5f0c-884e-c55a6b6d23e4",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--2b092579-fc13-55d6-bbc3-cbbc0a3fdcae",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--c194f2ec-3cbe-581f-a3fb-d8c30d457d52",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2016-10372",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2016-10372",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2016-10372"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-10372"
+    }
+   ],
+   "description": "The Eir D1000 modem does not properly restrict the TR-064 protocol, which allows remote attackers to execute arbitrary commands via TCP port 7547, as demonstrated by opening WAN access to TCP port 80, retrieving the login password (which defaults to the Wi-Fi password), and using the NewNTPServer feature.",
+   "x_kev": false,
+   "x_epss": 0.81899,
+   "x_epss_percentile": 0.99763,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--1ee4c646-e3ec-5527-adf4-039ba41853df",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--c194f2ec-3cbe-581f-a3fb-d8c30d457d52",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--0acaafcc-497f-564b-9905-8cc81c7a1608",
+   "created": "2026-10-30T00:00:00.000Z",
+   "modified": "2026-11-28T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2017-17215",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2017-17215",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2017-17215"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-17215"
+    }
+   ],
+   "description": "Huawei HG532 with some customized versions has a remote code execution vulnerability. An authenticated attacker could send malicious packets to port 37215 to launch attacks. Successful exploit could lead to the remote execution of arbitrary code.",
+   "x_kev": false,
+   "x_epss": 0.78278,
+   "x_epss_percentile": 0.99707,
+   "x_cvss_base_score": 8.8,
+   "x_cvss_severity": "HIGH"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--701cf110-e83c-5362-adf3-0a0acf90ab59",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--0acaafcc-497f-564b-9905-8cc81c7a1608",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--6953863f-2485-5942-8b89-c65832f44182",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2017-18368",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2017-18368",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2017-18368"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-18368"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2017-18368"
+    }
+   ],
+   "description": "The ZyXEL P660HN-T1A v1 TCLinux Fw $7.3.15.0 v001 / 3.40(ULM.0)b31 router distributed by TrueOnline has a command injection vulnerability in the Remote System Log forwarding function, which is accessible by an unauthenticated user. The vulnerability is in the ViewLog.asp page and can be exploited through the remote_host parameter.",
+   "x_kev": true,
+   "x_kev_date_added": "2023-08-07",
+   "x_kev_due_date": "2023-08-28",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.94508,
+   "x_epss_percentile": 0.99907,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--0b662da9-9c16-5600-a9ed-451539fe5852",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--6953863f-2485-5942-8b89-c65832f44182",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--5f6801e0-81df-50f4-bcc4-ba505f639c81",
+   "created": "2026-11-05T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2018-10561",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2018-10561",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2018-10561"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-10561"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2018-10561"
+    }
+   ],
+   "description": "An issue was discovered on Dasan GPON home routers. It is possible to bypass authentication simply by appending \"?images\" to any URL of the device that requires authentication, as demonstrated by the /menu.html?images/ or /GponForm/diag_FORM?images/ URI. One can then manage the device.",
+   "x_kev": true,
+   "x_kev_date_added": "2022-03-31",
+   "x_kev_due_date": "2022-04-21",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.92818,
+   "x_epss_percentile": 0.99891,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--c2dce6b9-36a5-5794-ab19-68b467589709",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--5f6801e0-81df-50f4-bcc4-ba505f639c81",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--5b82cd5a-42f4-5a87-83c5-625316aeaf87",
+   "created": "2026-11-05T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2018-10562",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2018-10562",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2018-10562"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-10562"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2018-10562"
+    }
+   ],
+   "description": "An issue was discovered on Dasan GPON home routers. Command Injection can occur via the dest_host parameter in a diag_action=ping request to a GponForm/diag_Form URI. Because the router saves ping results in /tmp and transmits them to the user when the user revisits /diag.html, it's quite simple to execute commands and retrieve their output.",
+   "x_kev": true,
+   "x_kev_date_added": "2022-03-31",
+   "x_kev_due_date": "2022-04-21",
+   "x_kev_ransomware_use": "Known",
+   "x_epss": 0.99949,
+   "x_epss_percentile": 0.99985,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--95e885c3-df1f-5743-a2a0-176bba5dd555",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--5b82cd5a-42f4-5a87-83c5-625316aeaf87",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--5909640f-0cef-5173-8399-c889f700397c",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2018-20062",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2018-20062",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2018-20062"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-20062"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2018-20062"
+    }
+   ],
+   "description": "An issue was discovered in NoneCms V1.3. thinkphp/library/think/App.php allows remote attackers to execute arbitrary PHP code via crafted use of the filter parameter, as demonstrated by the s=index/\\think\\Request/input&filter=phpinfo&data=1 query string.",
+   "x_kev": true,
+   "x_kev_date_added": "2021-11-03",
+   "x_kev_due_date": "2022-05-03",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.9953,
+   "x_epss_percentile": 0.99968,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--6491fb9c-d960-5c53-b214-f74be6279370",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--5909640f-0cef-5173-8399-c889f700397c",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--ad7398bb-e9c7-5297-ae7b-5bb46acd3850",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2019-16920",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2019-16920",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2019-16920"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-16920"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2019-16920"
+    }
+   ],
+   "description": "Unauthenticated remote code execution occurs in D-Link products such as DIR-655C, DIR-866L, DIR-652, and DHP-1565. The issue occurs when the attacker sends an arbitrary input to a \"PingTest\" device common gateway interface that could lead to common injection. An attacker who successfully triggers the command injection could achieve full system compromise. Later, it was independently found that these are also affected: DIR-855L, DAP-1533, DIR-862L, DIR-615, DIR-835, and DIR-825.",
+   "x_kev": true,
+   "x_kev_date_added": "2022-03-25",
+   "x_kev_due_date": "2022-04-15",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.99996,
+   "x_epss_percentile": 0.99993,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--8a4e9de1-025d-5612-bbf9-cdb14544e603",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--ad7398bb-e9c7-5297-ae7b-5bb46acd3850",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--8a11f880-44b7-5d30-baae-46f298e878da",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2019-17621",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2019-17621",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2019-17621"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-17621"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2019-17621"
+    }
+   ],
+   "description": "The UPnP endpoint URL /gena.cgi in the D-Link DIR-859 Wi-Fi router 1.05 and 1.06B01 Beta01 allows an Unauthenticated remote attacker to execute system commands as root, by sending a specially crafted HTTP SUBSCRIBE request to the UPnP service when connecting to the local network.",
+   "x_kev": true,
+   "x_kev_date_added": "2023-06-29",
+   "x_kev_due_date": "2023-07-20",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.90615,
+   "x_epss_percentile": 0.99871,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--b5513524-8197-51f0-b7c0-6773d418367f",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--8a11f880-44b7-5d30-baae-46f298e878da",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--7b2a02a7-bf5e-5292-a5f2-61d1990c5d3a",
+   "created": "2026-11-08T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2020-10987",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2020-10987",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2020-10987"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-10987"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2020-10987"
+    }
+   ],
+   "description": "The goform/setUsbUnload endpoint of Tenda AC15 AC1900 version 15.03.05.19 allows remote attackers to execute arbitrary system commands via the deviceName POST parameter.",
+   "x_kev": true,
+   "x_kev_date_added": "2021-11-03",
+   "x_kev_due_date": "2022-05-03",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.7981,
+   "x_epss_percentile": 0.99731,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--9e572f26-aa37-51c3-a4df-c257abab376b",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--7b2a02a7-bf5e-5292-a5f2-61d1990c5d3a",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--fc75c8ba-e24a-5019-bc73-5623da74ea7f",
+   "created": "2026-10-31T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2021-36260",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2021-36260",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2021-36260"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-36260"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2021-36260"
+    }
+   ],
+   "description": "A command injection vulnerability in the web server of some Hikvision product. Due to the insufficient input validation, attacker can exploit the vulnerability to launch a command injection attack by sending some messages with malicious commands.",
+   "x_kev": true,
+   "x_kev_date_added": "2022-01-10",
+   "x_kev_due_date": "2022-01-24",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.99869,
+   "x_epss_percentile": 0.99979,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--b56b402c-4bf6-54f9-8459-b03ccae00084",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--fc75c8ba-e24a-5019-bc73-5623da74ea7f",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--7ffe903b-0a7f-504e-8b26-7815e1f0661a",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2022-30525",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2022-30525",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2022-30525"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-30525"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2022-30525"
+    }
+   ],
+   "description": "A OS command injection vulnerability in the CGI program of Zyxel USG FLEX 100(W) firmware versions 5.00 through 5.21 Patch 1, USG FLEX 200 firmware versions 5.00 through 5.21 Patch 1, USG FLEX 500 firmware versions 5.00 through 5.21 Patch 1, USG FLEX 700 firmware versions 5.00 through 5.21 Patch 1, USG FLEX 50(W) firmware versions 5.10 through 5.21 Patch 1, USG20(W)-VPN firmware versions 5.10 through 5.21 Patch 1, ATP series firmware versions 5.10 through 5.21 Patch 1, VPN series firmware versions 4.60 through 5.21 Patch 1, which could allow an attacker to modify specific files and then execute some OS commands on a vulnerable device.",
+   "x_kev": true,
+   "x_kev_date_added": "2022-05-16",
+   "x_kev_due_date": "2022-06-06",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.98079,
+   "x_epss_percentile": 0.99947,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--6dfafc8f-ecdc-50bd-b641-31c1a476bd0b",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--7ffe903b-0a7f-504e-8b26-7815e1f0661a",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--7547e323-5207-5148-8d50-7af3be19c11a",
+   "created": "2026-10-31T00:00:00.000Z",
+   "modified": "2026-11-28T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2023-1389",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2023-1389",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2023-1389"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-1389"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2023-1389"
+    }
+   ],
+   "description": "TP-Link Archer AX21 (AX1800) firmware versions before 1.1.4 Build 20230219 contained a command injection vulnerability in the country form of the /cgi-bin/luci;stok=/locale endpoint on the web management interface. Specifically, the country parameter of the write operation was not sanitized before being used in a call to popen(), allowing an unauthenticated attacker to inject commands, which would be run as root, with a simple POST request.",
+   "x_kev": true,
+   "x_kev_date_added": "2023-05-01",
+   "x_kev_due_date": "2023-05-22",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.89273,
+   "x_epss_percentile": 0.99857,
+   "x_cvss_base_score": 8.8,
+   "x_cvss_severity": "HIGH"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--ca92e8d0-ea56-52a9-8a05-06d5217642cf",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--7547e323-5207-5148-8d50-7af3be19c11a",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--b5cce689-485f-5866-a05e-18dbb3a2ba5b",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2024-3272",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2024-3272",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2024-3272"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3272"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-3272"
+    }
+   ],
+   "description": "** UNSUPPORTED WHEN ASSIGNED ** A vulnerability, which was classified as very critical, has been found in D-Link DNS-320L, DNS-325, DNS-327L and DNS-340L up to 20240403. This issue affects some unknown processing of the file /cgi-bin/nas_sharing.cgi of the component HTTP GET Request Handler. The manipulation of the argument user with the input messagebus leads to hard-coded credentials. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The associated identifier of this vulnerability is VDB-259283. NOTE: This vulnerability only affects products that are no longer supported by the maintainer. NOTE: Vendor was contacted early and confirmed immediately that the product is end-of-life. It should be retired and replaced.",
+   "x_kev": true,
+   "x_kev_date_added": "2024-04-11",
+   "x_kev_due_date": "2024-05-02",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.77726,
+   "x_epss_percentile": 0.99698,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--27dc6ad3-8b63-5bf9-adb4-af77ee4e8f3a",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--b5cce689-485f-5866-a05e-18dbb3a2ba5b",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "vulnerability",
+   "spec_version": "2.1",
+   "id": "vulnerability--a36506f6-d908-595d-8ecc-98a6741f21da",
+   "created": "2026-11-01T00:00:00.000Z",
+   "modified": "2026-11-28T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "name": "CVE-2024-3273",
+   "external_references": [
+    {
+     "source_name": "cve",
+     "external_id": "CVE-2024-3273",
+     "url": "https://www.cve.org/CVERecord?id=CVE-2024-3273"
+    },
+    {
+     "source_name": "nvd",
+     "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3273"
+    },
+    {
+     "source_name": "cisa-kev",
+     "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2024-3273"
+    }
+   ],
+   "description": "** UNSUPPORTED WHEN ASSIGNED ** A vulnerability, which was classified as critical, was found in D-Link DNS-320L, DNS-325, DNS-327L and DNS-340L up to 20240403. Affected is an unknown function of the file /cgi-bin/nas_sharing.cgi of the component HTTP GET Request Handler. The manipulation of the argument system leads to command injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The identifier of this vulnerability is VDB-259284. NOTE: This vulnerability only affects products that are no longer supported by the maintainer. NOTE: Vendor was contacted early and confirmed immediately that the product is end-of-life. It should be retired and replaced.",
+   "x_kev": true,
+   "x_kev_date_added": "2024-04-11",
+   "x_kev_due_date": "2024-05-02",
+   "x_kev_ransomware_use": "Unknown",
+   "x_epss": 0.99011,
+   "x_epss_percentile": 0.9996,
+   "x_cvss_base_score": 9.8,
+   "x_cvss_severity": "CRITICAL"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--86debec3-37fa-5ca5-b845-7130e5ddbb90",
+   "created": "2026-11-21T00:00:00.000Z",
+   "modified": "2026-11-23T23:59:59.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "campaign--76d5b217-7838-5ebd-b891-e5f6477fce7c",
+   "target_ref": "vulnerability--a36506f6-d908-595d-8ecc-98a6741f21da",
+   "description": "Named by 2 samples (exploit)"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--dcec02d5-99a5-5fcb-93ba-02ae1148f95a",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--b912d323-99c3-5e8e-89e6-0d5f3d86982a"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--32873925-8d56-5633-812c-84e040dffe31",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--2b092579-fc13-55d6-bbc3-cbbc0a3fdcae"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--f1055fd9-f747-5c1e-9666-1f230f63066b",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--c194f2ec-3cbe-581f-a3fb-d8c30d457d52"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--c4d95bcd-1187-546e-b900-e87d494127f3",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--0acaafcc-497f-564b-9905-8cc81c7a1608"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--ad37f519-df17-543f-a125-f4c4e7f3f17d",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--6953863f-2485-5942-8b89-c65832f44182"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--45ea1786-4c34-554c-aedb-f9d7896726a6",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--5f6801e0-81df-50f4-bcc4-ba505f639c81"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--83a500cc-3a73-5a7b-97ff-cf5d083b0535",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--5b82cd5a-42f4-5a87-83c5-625316aeaf87"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--ce157ece-d472-52af-a0bc-091c98fe0bcf",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--5909640f-0cef-5173-8399-c889f700397c"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--209802f0-0699-5211-af9b-fa4271619809",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--ad7398bb-e9c7-5297-ae7b-5bb46acd3850"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--0e3df411-c02a-50cc-94ce-ccba28dfd009",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--8a11f880-44b7-5d30-baae-46f298e878da"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--66429ebe-a86b-5969-942a-fe87765a3d68",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--7b2a02a7-bf5e-5292-a5f2-61d1990c5d3a"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--93d13bc7-cfd8-53bd-b245-4744d30c4098",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--fc75c8ba-e24a-5019-bc73-5623da74ea7f"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--8918a848-2036-5731-bef3-d4977d1fdcea",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--7ffe903b-0a7f-504e-8b26-7815e1f0661a"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--7e27dfaf-ce21-5f60-9623-eb97946c3391",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--7547e323-5207-5148-8d50-7af3be19c11a"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--361e9a66-2969-5059-93fb-d8d0c7ac1a46",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--b5cce689-485f-5866-a05e-18dbb3a2ba5b"
+  },
+  {
+   "type": "relationship",
+   "spec_version": "2.1",
+   "id": "relationship--9b4b2461-72dc-56a1-86c2-3dfe67a9fa4c",
+   "created": "2026-10-10T00:00:00.000Z",
+   "modified": "2026-10-10T00:00:00.000Z",
+   "created_by_ref": "identity--75a5bcea-c6d1-5822-b06d-9c54259c4ecd",
+   "object_marking_refs": [
+    "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+   ],
+   "relationship_type": "targets",
+   "source_ref": "malware--17ed5268-a6b4-518e-9b71-2eeb6fd51f8e",
+   "target_ref": "vulnerability--a36506f6-d908-595d-8ecc-98a6741f21da"
+  }
+ ]
+}

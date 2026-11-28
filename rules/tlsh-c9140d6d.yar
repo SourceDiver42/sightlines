@@ -1,0 +1,25 @@
+rule Sightlines_tlsh_c9140d6d_unknown
+{
+    meta:
+        author = "Sightlines (automatically generated)"
+        description = "Strings shared by the samples of campaign tlsh-c9140d6d"
+        date = "2026-11-22"
+        campaign = "tlsh-c9140d6d"
+        family = ""
+        hash = "0c322731b7b4c10d109ea3af353229ea6e5462eb1339f11bc0efa6a8cdd69145"
+        reference = "https://sourcediver42.github.io/sightlines/campaigns/tlsh-c9140d6d.json"
+        license = "Detection Rule License (DRL) 1.1"
+    strings:
+        $s0 = " _0x57509b=_0x2ef3,_0x1a4712=_0x19762b();while(!![]){try{var _0x3c2821=parseInt(_0x57509b(0xc3))/(-0" ascii
+        $s1 = "3f8197){_0x1a4712['push'](_0x1a4712['shift']());}}}(_0x34da,-0x11d2cf+-0x68791+-0x8f6c3*-0x4),global" ascii
+        $s2 = "0xb9b+0xef4));if(_0x3c2821===_0xbce966)break;else _0x1a4712['push'](_0x1a4712['shift']());}catch(_0x" ascii
+        $s3 = "7c=_0x34da();var _0x2850fc=_0x20057c[_0x2d5fd2];return _0x2850fc;}(function(_0x19762b,_0xbce966){var" ascii
+        $s4 = "x2345)+-parseInt(_0x57509b(0x2a6))/(0x3b*-0x38+-0x5c9+0x12ba)*(-parseInt(_0x57509b(0x40e))/(-0x34f+-" ascii
+        $s5 = "x1f19+0x40e+0x1b0c)*(-parseInt(_0x57509b(0x179))/(-0xca6+-0x17af+0x2457))+-parseInt(_0x57509b(0x3d7)" ascii
+        $s6 = "function _0x2ef3(_0x2d5fd2,_0x14ad9a){_0x2d5fd2=_0x2d5fd2-(-0x1*0xdfe+-0x3*0xbe8+0x3253);var _0x2005" ascii
+        $s7 = ")/(-0x131f+0x77a*-0x1+0xd*0x20c)*(parseInt(_0x57509b(0x2ab))/(-0x4*0x84f+-0x68*-0x1+0x20d8))+-parseI" ascii
+        $s8 = "arseInt(_0x57509b(0x28d))/(-0xb68+-0x55*0x2c+0x1a0b*0x1)+parseInt(_0x57509b(0x3ea))/(0x21cc+0x181+-0" ascii
+        $s9 = "nt(_0x57509b(0x1a0))/(0x22a*-0x3+0xcf6+-0x673)+-parseInt(_0x57509b(0x379))/(-0x1219+-0x8c7+0x1ae6)+p" ascii
+    condition:
+        filesize < 1048576 and 10 of them
+}
